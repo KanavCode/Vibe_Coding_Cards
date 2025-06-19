@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+  background: #0A0A0A;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.card-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #0A0A0A;
+    position: relative;
+    border-radius: 24px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px; 
+    bottom: -2px;
+    left: -2px;   
+    z-index: -1;
+    border-radius: 24px;
+    background: linear-gradient(
+        45deg,
+        #FF00FF,
+        #FF00FF,
+        #00FFFF,
+        #00FFFF
+    );
+    opacity: 0.5;
+}
+
+.card {
+  background: #141414;
+  border-radius: 12px;
+  position: relative;
+  padding: 2px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  z-index: -1;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #FF00FF, #00FFFF);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-content {
+  background: #141414;
+  border-radius: 11px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;  /* Changed from 50% to 4px for square corners */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.card-radio:checked {
+    background: #5B21B6;
+    border-color: #5B21B6;
+}
+
+.card-radio:checked::after {
+    content: 'check';  /* Material Icons checkmark */
+    font-family: 'Material Icons';
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+}
+
+/* Hover effect for better interaction */
+.card-radio:hover:not(:checked) {
+    border-color: #666;
+}
+
+/* Card highlight effect when checked */
+.card:has(.card-radio:checked) {
+    border-color: #5B21B6;
+}
+
+.card:has(.card-radio:checked)::before {
+    opacity: 1;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #141414;
+  margin-right: -8px;
+}
+
+.green { background: #10B981; }
+.orange { background: #F59E0B; }
+.purple { background: #7C3AED; }
+.white { background: #ffffff; }
+
+.settings {
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.settings:hover {
+    color: #fff;
+}
+
+.settings svg {
+    width: 20px;
+    height: 20px;
+}
